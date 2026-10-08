@@ -1,0 +1,313 @@
+:root {
+  --primary-accent: #00f2fe;
+  --secondary-accent: #4face0;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-dim: #b0b0b0;
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+[data-theme="light"] {
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-main: #1e293b;
+  --text-dim: #64748b;
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.workout-planner-container {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  transition: all 0.3s ease;
+}
+
+.planner-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.planner-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #00f2fe, #4face0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.planner-header p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+}
+
+.planner-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  background: var(--glass-bg);
+  padding: 8px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  gap: 5px;
+}
+
+.control-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 40px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+[data-theme="light"] .control-btn.active {
+  color: #fff;
+}
+
+.control-btn.active {
+  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  color: #000;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.planner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.recommendation-banner {
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(5px);
+}
+
+.banner-text h3 {
+  color: var(--primary-accent);
+  margin-bottom: 5px;
+}
+
+.lib-link {
+  color: #fff;
+  text-decoration: none;
+  background: var(--primary-accent);
+  color: #000;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.lib-link:hover {
+  transform: translateY(-2px);
+}
+
+.daily-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.workout-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-accent);
+}
+
+.workout-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-accent);
+}
+
+.exercise-list {
+  list-style: none;
+  padding: 0;
+}
+
+.exercise-item {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-item:last-child {
+  border-bottom: none;
+}
+
+.ex-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.ex-info span {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+.how-to-btn {
+  font-size: 0.8rem;
+  color: var(--primary-accent);
+  text-decoration: none;
+  border: 1px solid var(--primary-accent);
+  padding: 4px 10px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.how-to-btn:hover {
+  background: var(--primary-accent);
+  color: #000;
+}
+
+.weekly-view {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+.day-column {
+  background: var(--glass-bg);
+  border-radius: 15px;
+  padding: 15px;
+  min-height: 200px;
+}
+
+.day-column h3 {
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--secondary-accent);
+}
+
+.weekly-ex-item {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  padding-left: 10px;
+  border-left: 2px solid var(--primary-accent);
+}
+
+@media (max-width: 1024px) {
+  .weekly-view {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.generate-section {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+.ai-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ai-input-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 15px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+[data-theme="light"] .ai-input-group textarea {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.generate-btn {
+  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.4);
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.plan-display {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  line-height: 1.6;
+}
+
+.plan-display h2, .plan-display h3 {
+  color: var(--primary-accent);
+  margin-top: 20px;
+}
+
+.plan-display ul {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+.plan-display li {
+  margin-bottom: 8px;
+}
+@media (max-width: 600px) {
+  .planner-header h1 {
+    font-size: 2rem;
+  }
+  .recommendation-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
